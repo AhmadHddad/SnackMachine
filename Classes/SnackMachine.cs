@@ -154,7 +154,10 @@ namespace SnackVendingMachine.Classes
             if (IsValideMoney(paymentMethod, insertedCoins))
             {
                 totalInsertedCoins += insertedCoins;
-                System.Console.WriteLine("Total Inserted Money = " + StaticUtils.StringifyMoney(totalInsertedCoins));
+                System.Console.WriteLine($"Total Inserted Money: {StaticUtils.StringifyMoney(totalInsertedCoins)}, Total Price: {StaticUtils.StringifyMoney(totalPrice)}");
+
+                if(totalInsertedCoins >= totalPrice) return totalInsertedCoins;
+
 
                 if (WantToInsertMore())
                 {
